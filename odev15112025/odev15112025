@@ -1,0 +1,111 @@
+class Ders {
+    String ad;
+    String ogretmen;
+    String odev;
+    int  yazili;
+    int sozlu;
+
+    Ders(String ad, String ogretmen, String odev, int yazili, int sozlu) {
+        this.ad = ad;
+        this.ogretmen = ogretmen;
+        this.odev = odev;
+        this.yazili = yazili;
+        this.sozlu = sozlu;
+    }
+    String programaBak () {
+        return ad + "," + ogretmen + ", ödev:" + odev + ", yazılı notu:" + yazili + ", sözlü notu:" + sozlu
+    }
+}
+
+class Gun {
+    String gunAdi;
+    Ders[] dersler } new Ders[8];
+
+    Gun(String gunAdi) {
+        this.gunAdi = gunAdi;
+    }
+    void dersiKoy (int saat, Ders ders) {
+        dersler[saat - 1] = ders;
+    }
+    void yazdir() {
+        Stystem.out.println("-----" + gunAdi + "-----");
+        for (int i = 0; i<8; i++) {
+            System.out.println((i + 1) + ". Ders" + dersler[i].programaBak());
+        }
+        System.out.println()
+        }
+}
+
+public class baltaodev15112025 {
+    public static void main(String[] args) {
+
+        Ders mat = new Ders("Matematik", "Murat hoca", "ünite sonu soruları", 70, 90);
+        Ders almkon = new Ders("Almanca konuşma-dinleme", "Hakan hoca", "poster hazırlama", 58, 75);
+        Ders almoku = new Ders("Almanca okuma", "Fatmagül hoca", "metin çevirisi", 95, 78);
+        Ders almyaz = new Ders("Almanca yazma", "Yeliz hoca", "arbeitsbuch sayfa 55", 98, 85);
+        Ders beden = new Ders("beden eğitimi ve spor", "Bülent hoca", "yok", 90, 90);
+        Ders bilisim = new Ders("bilgisayar teknolojileri ve yazılım", "Özgür hoca", 98, 95);
+        Ders muzik = new Ders("Müzik", "Aysel hoca", "bir türkünün hikayesini ve sözlerini yazma", 100, 95);
+        Ders ing = new Ders("İkinci yabancı dil(İngilizce)", "Tümay hoca", "Nat geo olp uygulamasındaki ödevler", 85,93);
+        Ders reh = new Ders("rehberlik", "Murat hoca", "yok", 100, 100);
+        Ders almtem = new Ders("Temel almanca", "Derya hoca", "fotokopi ödevi", 60, 90);
+        Ders turkce = new Ders("Türk dili ve edebiyatı", "Mustafa hoca", "ünite sonu değerlendirme", 77, 80);
+
+        Gun pazartesi = new Gun("Pazartesi");
+        Gun sali = new Gun("Salı");
+        Gun car = new Gun("Çarşamba");
+        Gun per = new Gun("Perşembe");
+        Gun cuma = new Gun("Cuma");
+
+        pazartesi.dersiKoy(1, turkce);
+        pazartesi.dersiKoy(2, turkce);
+        pazartesi.dersiKoy(3, almyaz);
+        pazartesi.dersiKoy(4, almoku);
+        pazartesi.dersiKoy(5, bilisim);
+        pazartesi.dersiKoy(6, bilisim);
+        pazartesi.dersiKoy(7, ing);
+        pazartesi.dersiKoy(8, ing);
+
+        sali.dersiKoy(1, almyaz);
+        sali.dersiKoy(2, almyaz);
+        sali.dersiKoy(3, bilisim);
+        sali.dersiKoy(4, bilisim);
+        sali.dersiKoy(5, almoku);
+        sali.dersiKoy(6, almoku);
+        sali.dersiKoy(7, almtem);
+        sali.dersiKoy(8, almtem);
+
+        car.dersiKoy(1, turkce);
+        car.dersiKoy(2, almyaz);
+        car.dersiKoy(3, almkon);
+        car.dersiKoy(4, almkon);
+        car.dersiKoy(5, reh);
+        car.dersiKoy(6, almyaz);
+        car.dersiKoy(7, almyaz);
+        car.dersiKoy(8, almtem);
+
+        per.dersiKoy(1, ing);
+        per.dersiKoy(2, ing);
+        per.dersiKoy(3, beden);
+        per.dersiKoy(4, beden);
+        per.dersiKoy(5, almtem);
+        per.dersiKoy(6, mat);
+        per.dersiKoy(7, muzik);
+        per.dersiKoy(8, muzik);
+
+        cuma.dersiKoy(1, almtem);
+        cuma.dersiKoy(2, almtem);
+        cuma.dersiKoy(3, almoku);
+        cuma.dersiKoy(4, almoku);
+        cuma.dersiKoy(5, almkon);
+        cuma.dersiKoy(6, almkon);
+        cuma.dersiKoy(7, mat);
+        cuma.dersiKoy(8, mat);
+
+        pazartesi.yazdır();
+        sali.yazdir();
+        car.yazdır();
+        per.yazdir();
+        cuma.yazdir();
+    }
+}
